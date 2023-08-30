@@ -1,0 +1,4 @@
+#ignoring all intermediate and binary files
+
+*.o
+*.exe
