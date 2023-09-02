@@ -1,7 +1,9 @@
 /*
     This program will find a node into a linked list
+    using recursive method
+
     Time Complexity: O(n);
-    Space Complexity: O(1);
+    Space Complexity: O(n);
 
 )*/
 #include<iostream>
@@ -72,14 +74,14 @@ Node *create_node(int data, Node *cur_node, Node** head_ref) {
     return new_node;
 }
 
-/// searching a node
+/// searching a node using recursion
 bool searching_node(int data, Node *cur_node) {
-    while(cur_node != NULL) {
-        if(cur_node->data == data) return true;
-        cur_node = cur_node->next;
-    }
 
-    return false;
+    if(cur_node == NULL) return false;
+
+    if(cur_node->data == data) return true;
+    else searching_node(data, cur_node->next);
+
 }
 
 /// printing the linked list
