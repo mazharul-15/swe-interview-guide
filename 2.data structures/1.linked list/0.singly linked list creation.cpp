@@ -23,7 +23,7 @@ struct node {
 };
 
 
-Node *create_node(int , Node *, Node *&);
+Node *create_node(int , Node *, Node**);
 void display_list(Node *&);
 
 int main() {
@@ -35,7 +35,7 @@ int main() {
 
     for(int i = 1; i <= n; i++) {
         cin>> val;
-        cur_node = create_node(val, cur_node, head);
+        cur_node = create_node(val, cur_node, &head);
     }
 
     display_list(head);
@@ -44,7 +44,7 @@ int main() {
 }
 
 /// adding single node to the linked list
-Node *create_node(int data, Node *cur_node, Node *&head) {
+Node *create_node(int data, Node *cur_node, Node** head_ref) {
     Node *new_node = new Node();
 
     if(new_node == NULL) {
@@ -55,7 +55,7 @@ Node *create_node(int data, Node *cur_node, Node *&head) {
         new_node->data = data;
         new_node->next = NULL;
 
-        if(head == NULL) head = new_node;
+        if(*head_ref == NULL) *head_ref = new_node;
         else cur_node->next = new_node;
 
         return new_node;
