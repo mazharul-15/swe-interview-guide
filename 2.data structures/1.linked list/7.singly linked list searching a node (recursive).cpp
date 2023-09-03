@@ -50,9 +50,11 @@ int main() {
     scanf("%d", &val);
 
     bool status = searching_node(val, head);
+    cout<< "Value: "<< status << endl;
     if(status) printf("YES\n");
     else printf("NO\n");
     ///display_list(head);
+
     return 0;
 }
 
@@ -80,7 +82,7 @@ bool searching_node(int data, Node *cur_node) {
     if(cur_node == NULL) return false;
 
     if(cur_node->data == data) return true;
-    else searching_node(data, cur_node->next);
+    else return searching_node(data, cur_node->next);
 
 }
 
