@@ -64,18 +64,12 @@ Node* List::create_node(Node* prev_node, int data, Node** head_ref) {
         exit(1);
     }
 
-
+    next_node->prev = prev_node;
     next_node->data = data;
     next_node->next = NULL;
 
-    if(*head_ref == NULL) {
-        next_node->prev = NULL;
-        *head_ref = next_node;
-    }
-    else {
-        prev_node->next = next_node;
-        next_node->prev = prev_node;
-    }
+    if(*head_ref == NULL) *head_ref = next_node;
+    else prev_node->next = next_node;
 
     return next_node;
 }
