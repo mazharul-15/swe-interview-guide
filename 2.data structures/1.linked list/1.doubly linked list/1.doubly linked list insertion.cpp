@@ -36,6 +36,7 @@ class linked_list {
         void display_list(Node*);
         void reverse_display(Node*);
         Node* insertion_middle(Node*);
+        void insertion_after_node(int, int, Node*, Node**);
 };
 
 
@@ -46,7 +47,7 @@ int main() {
 
     List L;
 
-    int n, val;
+    int n, val, node_val;
 
         scanf("%d", &n);
         while(n--) {
@@ -54,7 +55,18 @@ int main() {
             tail = L.create_node(tail, val, &head);
         }
 
+        printf("Main List: ");
         L.display_list(head);
+        printf("Main List in reverse order: ");
+        L.reverse_display(tail);
+
+        printf("Enter two node 1st is node and 2nd new node value: ");
+        scanf("%d %d", &node_val, &val);
+        L.insertion_after_node(node_val, val, head, &tail);
+
+        printf("Main List after adding node: ");
+        L.display_list(head);
+        printf("Main List in reverse order after adding node: ");
         L.reverse_display(tail);
 
     return 0;
@@ -77,6 +89,40 @@ Node* List::create_node(Node* tail, int data, Node** head_ref) {
     else tail->next = new_node;
 
     return new_node;
+}
+
+/// insertion after a node
+void List::insertion_after_node(int val, int data, Node* cur_node, Node** tail_ref) {
+
+    while(cur_node != NULL) {
+
+        if(cur_node->data == val) {
+
+            Node *new_node = new Node();
+            if(new_node == NULL) {
+                printf("OVERFLOW!!!\n");
+                exit(1);
+            }
+
+            new_node->data = data;
+            /// checking if last node
+            if(cur_node->next == NULL) {
+                cur_node->next = new_node;
+                new_node->prev = cur_node;
+                new_node->next = NULL;
+
+                *tail_ref = new_node;
+            }
+            else {
+                cur_node->next->prev = new_node;
+                new_node->next = cur_node->next;
+                new_node->prev = cur_node;
+                cur_node->next = new_node;
+            }
+            break;
+        }
+        cur_node = cur_node->next;
+    }
 }
 
 /// display the linked list
