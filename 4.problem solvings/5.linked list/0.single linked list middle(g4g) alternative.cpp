@@ -24,15 +24,20 @@ class Solution{
     public:
     int getMiddle(Node *head)
     {
-        Node* slow, *fast;
-        slow = fast = head;
+        if(head == NULL) return -1;
 
-        while(fast!=NULL && fast->next!=NULL) {
-            slow = slow->next;
-            fast = fast->next->next;
+        Node *mid = head;
+        int cnt = 0; /// count variable
+
+        while(head != NULL) {
+
+            if(cnt & 1) mid = mid->next;
+
+            cnt++;
+            head = head->next;
         }
 
-        return slow->data;
+        return mid->data;
     }
 };
 
