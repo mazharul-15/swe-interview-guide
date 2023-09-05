@@ -100,7 +100,7 @@ void creation_loop(Node* head, int pos, Node* tail) {
 
     if(pos == 0) return;
     for(int i = 1; i < pos; i++) {
-        printf("%d ", head->data);
+        //printf("%d ", head->data);
         head = head->next;
     }
     tail->next = head;
@@ -110,10 +110,22 @@ void creation_loop(Node* head, int pos, Node* tail) {
 /// detection loop
 bool detection_loop(Node* cur_node) {
 
-    while(cur_node != NULL) {
+    /// using flag variable
+    /*while(cur_node != NULL) {
 
         if(cur_node->flag == 1) return true;
         cur_node->flag = 1;
+        cur_node = cur_node->next;
+    }
+    */
+    /// using hashmap
+    unordered_set<Node*> st;
+
+    while(cur_node != NULL) {
+
+        if(st.find(cur_node) != st.end()) return true;
+
+        st.insert(cur_node);
         cur_node = cur_node->next;
     }
 
