@@ -190,4 +190,3 @@ void List::reverse_display(Node *cur_node) {
     }
     printf("\n");
 }
-
