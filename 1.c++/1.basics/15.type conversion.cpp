@@ -24,6 +24,9 @@ int main() {
     long long int z = 1000;
 
     cout<< (x+y+z)<< endl;
+    float f = 12.45;
+
+    printf("\n%0.4f\n", (x+y+z+f));
 
     /// explicit type conversion
     int m = 55;
