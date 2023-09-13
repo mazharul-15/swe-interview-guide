@@ -21,6 +21,20 @@ void printList(Node* node)
     cout<<"\n";
 }
 
+/*
+
+struct Node
+{
+    int data;
+    struct Node* next;
+
+    Node(int x){
+        data = x;
+        next = NULL;
+    }
+};
+
+*/
 
 class Solution
 {
@@ -54,14 +68,8 @@ class Solution
             tmp->data += carry;
 
             if(tmp->data > 9 && tmp->next == NULL) {
-
-                Node* new_node = (Node*)malloc(sizeof(Node));
-
                 tmp->data = 0;
-                new_node->data = 1;
-                new_node->next = NULL;
-
-                tmp->next = new_node;
+                tmp->next = new Node(1);
                 carry = 0;
             }
             else if(tmp->data > 9 && tmp->next != NULL) {
@@ -72,10 +80,9 @@ class Solution
 
             tmp = tmp->next;
         }
-        /// again reversing the linked list
-        head = reverse_list(head);
 
-        return head;
+        /// again reverse & return
+        return reverse_list(head);
     }
 };
 
