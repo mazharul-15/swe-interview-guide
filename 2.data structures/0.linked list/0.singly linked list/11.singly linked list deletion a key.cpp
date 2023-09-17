@@ -1,5 +1,5 @@
 /*
-    This program will find the length of a linked list
+    This program will find a node into a linked list
     using recursive method
 
     Time Complexity: O(n);
@@ -33,7 +33,7 @@ class node {
 
 Node *create_node(int , Node *, Node**);
 bool searching_node(int , Node *);
-int length(Node*);
+Node *deletion_key(Node *, int);
 void display_list(Node *);
 
 int main() {
@@ -47,16 +47,19 @@ int main() {
         scanf("%d", &val);
         cur_node = create_node(val, cur_node, &head);
     }
+    /// linked list
+    display_list(head);
 
+    cout<< "Give a key to be deleted: ";
     scanf("%d", &val);
 
-    bool status = searching_node(val, head);
-    cout<< "Value: "<< status << endl;
-    if(status) printf("YES\n");
-    else printf("NO\n");
-    ///display_list(head);
-
-    cout<< "The length : " << length(head) << endl;
+    //bool status = searching_node(val, head);
+    //cout<< "Value: "<< status << endl;
+    //if(status) printf("YES\n");
+    //else printf("NO\n");
+    head = deletion_key(head , val);
+    if(head == NULL) cout<< "YES\n";
+    display_list(head);
 
     return 0;
 }
@@ -89,14 +92,13 @@ bool searching_node(int data, Node *cur_node) {
 
 }
 
-/// finding the length
-int length(Node *cur) {
+/// deletion a given key
+Node *deletion_key(Node *cur, int key) {
 
-    //if(cur == NULL) return 0;
+    if(cur->data == key) return cur->next;
+    if(cur == NULL) return cur;
 
-    //return length(cur->next) + 1;
-    /// smart coding
-    return (cur==NULL) ? 0 : length(cur->next)+1;
+    cur->next = deletion_key(cur->next, key);
 }
 
 /// printing the linked list
@@ -107,6 +109,5 @@ void display_list(Node *cur_node) {
     }
     printf("\n");
 }
-
 
 
