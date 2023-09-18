@@ -2,7 +2,7 @@
     Author: Mazharul Islam
             CSE, HSTU
 
-    Program: doubly linked list
+    Program: Reversing the doubly linked list
 */
 
 #include<iostream>
@@ -40,6 +40,8 @@ class linked_list {
         Node* create_node(Node*, int, Node**);
         void display_list(Node*);
         void reverse_display_list(Node*);
+
+        Node* reversing_list(Node*);
 };
 
 
@@ -59,6 +61,11 @@ int main() {
     L1.display_list(head);
     L1.reverse_display_list(tail);
 
+    /// reverse function call
+    head = L1.reversing_list(head);
+
+    /// displaying after reversing the list
+    L1.display_list(head);
 
     return 0;
 }
@@ -100,5 +107,12 @@ void List::reverse_display_list(Node* cur_node) {
     }
 
     printf("\n");
+}
+
+/// reversing the list
+Node* List::reversing_list(Node* head) {
+
+
+
 }
 
