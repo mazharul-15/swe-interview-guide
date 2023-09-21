@@ -2,7 +2,7 @@
     Author: Mazharul Islam
             CSE, HSTU
 
-    Program: directed weighted Graph representation
+    Program: undirected weighted Graph representation
 
 */
 
