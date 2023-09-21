@@ -4,6 +4,11 @@
 
     Program: BFS(Breadth First Search)
 
+    TC: O(n) + O(2E)
+        O(n+E)
+
+    SC: O(n)
+
 */
 
 #include<iostream>
