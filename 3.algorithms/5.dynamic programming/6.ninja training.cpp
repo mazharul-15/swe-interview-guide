@@ -11,10 +11,11 @@
 
 using namespace std;
 
+int cnt;
 int A[1000][3];
 int dp[1000][3];
 
-int ninja_training(int, int, int);
+int ninja_training(int, int);
 
 int main() {
 
@@ -31,24 +32,34 @@ int main() {
         for(int j = 0; j < 3; j++) cin>> A[i][j];
     }
 
-    mx = ninja_training(n-1, -1, 0);
-    cout<< "Max point: " << mx << "\n";
+    mx = ninja_training(n-1, -1);
+    cout<< "Max point: " << mx << "no. of fun call: " << cnt << "\n";
 
     return 0;
 }
 
-int ninja_training(int n, int c, int mx) {
+int ninja_training(int n, int c) {
 
-    if(n == -1) return 0;
+    cnt++;
+    //if(n == -1) return 0;
+    if(n == 0) {
+        int mx = 0;
+        for(int j = 0; j < 3; j++) if(j != c) mx = max(mx, A[0][j]);
 
+        return mx;
+    }
+
+
+    int c_mx = 0, mx = 0;
     for(int j = 0; j < 3; j++) {
 
         if(j != c) {
 
-            int c_mx = A[n][j] + ninja_training(n-1, j, mx);
+            c_mx = A[n][j] + ninja_training(n-1, j);
             mx = max(mx, c_mx);
         }
     }
+    return mx;
 }
 
 /*
@@ -60,9 +71,11 @@ int ninja_training(int n, int c, int mx) {
 1
 5 3 10
 
-2
+4
 9 2 1
 1 2 9
+3 4 2
+5 6 7
 */
 
 
