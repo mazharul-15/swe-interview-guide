@@ -25,6 +25,8 @@ int main() {
         str[i] = ch;
         i++;
     }
+    str[i] = '\0';
+
     printf("%s %d\n", str, strlen(str));
 
     return 0;
