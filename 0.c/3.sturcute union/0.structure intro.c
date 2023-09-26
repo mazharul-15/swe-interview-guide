@@ -10,7 +10,7 @@ typedef struct students STUDENT;
 
 struct students {
 
-    int id = 100;
+    int id;
     char name[500];
 };
 
