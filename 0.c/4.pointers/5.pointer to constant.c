@@ -3,6 +3,8 @@
 
 int main() {
 
+    double val = 13.123;
+    double *p = &val;
     int a = 10, b = 50;
     const int *ptr = &a;
 
