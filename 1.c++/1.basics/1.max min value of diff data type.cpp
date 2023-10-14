@@ -5,6 +5,7 @@ using namespace std;
 int main() {
 
     float mn = FLT_MAX;
-    cout<< mn;
+    float mx = FLT_MIN;
+    cout<< mn <<" " << mx;
     return 0;
 }
