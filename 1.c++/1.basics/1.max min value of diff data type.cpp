@@ -6,6 +6,11 @@ int main() {
 
     float mn = FLT_MAX;
     float mx = FLT_MIN;
-    cout<< mn <<" " << mx;
+
+    double dmn = DBL_MAX;
+    double dmx = DBL_MIN;
+
+    cout<< mn <<" " << mx << "\n";
+    cout<<dmn<<dmx<<"\n";
     return 0;
 }
