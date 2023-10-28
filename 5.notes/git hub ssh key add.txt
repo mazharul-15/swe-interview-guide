@@ -1,0 +1,17 @@
+1. ssh key generating:
+	
+	ssh-keygen -t ed25519 -C "your email address"
+
+	(file path: c drive->user ->pc_name -> .ssh folder->id_filename.pub)
+
+2. password setting for ssh key: enter password
+
+3. adding your ssh key to the ssh-agent
+	
+	eval $(ssh-agent -s)
+	
+	ssh-add ~/.ssh/id_ed25519 (ssh file name)
+
+4.adding ssh key to your github account
+
+
