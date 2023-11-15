@@ -22,5 +22,9 @@ int main() {
     //student std1(1502034, "Rezwan Rafi");
     student std1 = student(1502055, "Mazharul Islam");
     std1.display();
+
+    student std2(std1);
+    std2.display();
     return 0;
 }
+
