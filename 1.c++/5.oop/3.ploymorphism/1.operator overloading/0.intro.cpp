@@ -28,6 +28,16 @@ class operatorOverloading {
             return res;
         }
 
+        operatorOverloading operator-(operatorOverloading &obj) {
+
+            operatorOverloading res;
+
+            res.a = a - obj.a;
+            res.b = b - obj.b;
+
+            return res;
+        }
+
         void display() {
             cout<< a << " " << b << "\n";
         }
@@ -40,6 +50,9 @@ int main() {
 
     operatorOverloading obj3 = obj1 + obj2;
     obj3.display();
+
+    operatorOverloading obj4 = obj1 - obj2;
+    obj4.display();
 
     return 0;
 }
