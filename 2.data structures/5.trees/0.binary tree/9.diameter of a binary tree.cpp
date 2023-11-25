@@ -102,6 +102,6 @@ int diameter(Node* root, int &d) {
     int RH = diameter(root->right, d);
 
     d = max(d , LT + RH + 1);
-    cout<< "dia: " << d << " " << "LT: " << LT << " " << "RH: " << RH << endl;
+    //cout<< "dia: " << d << " " << "LT: " << LT << " " << "RH: " << RH << endl;
     return max(LT, RH) + 1;
 }
