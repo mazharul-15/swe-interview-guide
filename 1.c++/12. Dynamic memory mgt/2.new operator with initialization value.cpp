@@ -15,5 +15,9 @@ int main()
     double *dbl = new double(23.45);
     cout<< *dbl << "\n";
 
+    delete var, chr;
+    //delete chr;
+    delete flt;
+    delete dbl;
     return 0;
 }
