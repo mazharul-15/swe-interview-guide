@@ -10,5 +10,13 @@ int main()
     ptr = &v;
     cout<< *ptr << endl;
 
+    delete ptr;
+    if(ptr == NULL)
+    {
+        cout<< "memory is deleted\n";
+    }
+
+    else cout<< *ptr << endl;
+
     return 0;
 }
