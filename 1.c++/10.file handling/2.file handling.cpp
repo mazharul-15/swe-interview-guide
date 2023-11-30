@@ -16,10 +16,10 @@ int main()
 
         int sum = a + b;
         cout<< sum << endl;
-
     }
 
     fclose(f1);
     fclose(f2);
+
     return 0;
 }
