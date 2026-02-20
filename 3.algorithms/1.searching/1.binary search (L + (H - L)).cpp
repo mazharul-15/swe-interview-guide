@@ -34,7 +34,7 @@ int binarySearch(vector<int> &arr, int l, int h, int x)
 {
     while(l <= h)
     {
-        int mid = (l + (h - l)) / 2;
+        int mid = l + (h - l)/ 2;
         if(arr[mid] == x)
         {
             return mid;
